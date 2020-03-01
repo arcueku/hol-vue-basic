@@ -1,15 +1,26 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button>el-button</el-button>
-    </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-container>
+      <el-aside>
+        <el-menu id="nav">
+          <el-menu-item>
+            <router-link to="/">Home</router-link>
+          </el-menu-item>
+          <el-menu-item>
+            <router-link to="/about">About</router-link>
+          </el-menu-item>
+          <el-menu-item>
+            <router-link to="/table">Table</router-link>
+          </el-menu-item>
+          <el-menu-item>
+            <router-link to="/form">Form</router-link>
+          </el-menu-item>
+        </el-menu>
+      </el-aside>
+      <el-main>
+        <router-view />
+      </el-main>
+    </el-container>
   </div>
 </template>
 
