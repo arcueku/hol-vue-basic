@@ -1,18 +1,52 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h3>テキストバインディング</h3>
+    <span>{{ msg }}</span>
+    <h3>リストレンダリング</h3>
+    <ul id="item-list">
+      <li v-for="item in items" :key="item.id">{{ item.name }}</li>
+    </ul>
+    <h3>イベントハンドリング</h3>
+    <button v-on:click="onClick">実行</button>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<script lang="ts">
+import Vue from 'vue'
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+// ここにインターフェースを追加
+declare interface Item {
+  id: number
+  name: string
 }
+
+export default Vue.extend({
+  data() {
+    return {
+      msg: 'Hello Vue.js!',
+      items: [
+        {
+          id: 1,
+          name: 'キーボード'
+        },
+        {
+          id: 2,
+          name: 'マウス'
+        }
+      ] as Item[]
+    }
+  },
+  methods: {
+    onClick(): void {
+      alert(this.msg)
+    }
+  }
+})
 </script>
+
+<style scoped>
+.home {
+  text-align: left;
+  color: green;
+}
+</style>
