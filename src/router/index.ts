@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Table from '../views/Table.vue'
 import Form from '../views/Form.vue'
+import Translator from '../views/Translator.vue'
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,11 @@ const routes = [
     path: '/form',
     name: 'form',
     component: Form
+  },
+  {
+    path: '/translator',
+    name: 'translator',
+    component: Translator
   }
 ]
 
